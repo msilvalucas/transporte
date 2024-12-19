@@ -1,0 +1,123 @@
+.menu {
+  display: flex;
+  align-items: center;
+  background-color: #d9d9d9;
+  min-height: 100px;
+  margin-bottom: 25px;
+}
+
+.name-user {
+  color: #b71d24;
+  text-align: right;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.title a {
+  color: #b71d24;
+  text-align: center;
+  font-family: 'Roboto Slab';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+}
+
+.navegacao__secondary {
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.btn__secondary btn {
+  display: inline-flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  border: 1px solid #c8c8c8;
+  background-color: #f8f8f8;
+}
+
+.tabs-container {
+  align-items: center;
+}
+
+.tabs-container ul {
+  border-radius: 20px 20px 0px 0px;
+  background: #5a5b5d;
+  padding: 20px 20px 0;
+  border: 1px solid #5a5b5d;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.nav-tabs .nav-item .nav-link {
+  display: flex;
+  width: 160px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px 20px 0px 0px;
+  border: 1px solid #878787;
+  background-color: #7e7e7e;
+  color: #d8d8d8;
+}
+
+.nav-tabs .nav-item .nav-link:focus {
+  background-color: #b71d24;
+  border: 1px solid #b71d24;
+}
+
+.filtros {
+  margin-bottom: 32px;
+  gap: 10px;
+}
+
+.filtros .btn {
+  display: inline-flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.table__custom {
+  border: 1px solid #73777c;
+}
+
+.table__custom thead tr th {
+  background-color: #5a5b5d;
+  color: white;
+}
+
+.filter-container {
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #73777c;
+}
+.filter-button {
+  background-color: transparent;
+
+  border: 1px solid #5a5b5d;
+  color: #5a5b5d;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+.filter-button:hover {
+  background-color: white;
+  color: black;
+}

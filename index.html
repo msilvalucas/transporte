@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programação Diária de Serviços</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="menu">
+        <div class="container-fluid">
+            <nav class="navbar px-3">
+                <a class="navbar-brand" href="#">
+                    <img src="./logo.png" alt="Logo" height="40">
+                </a>
+                <div>
+                    <span class="me-3 name-user">Usuário Teixeira</span>
+                    <br>
+                    <span class="name-user">DB: 01</span>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between mt-3 px-3 navegacao__secondary">
+            <h5 class="title"><a href="#">Programação Diária de Serviços</a></h5>
+
+            <div class="btn__secondary">
+                <button class="btn btn-outline-secondary me-2">Dados do Cliente</button>
+                <button class="btn btn-outline-secondary me-2">Serviços do Cliente</button>
+                <button class="btn btn-outline-secondary">Dados do Contrato</button>
+            </div>
+        </div>
+
+
+        <div class="tabs-container px-3">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="#executando" data-bs-toggle="tab">Executando</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#programado" data-bs-toggle="tab">Programado</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#nao-programado" data-bs-toggle="tab">Não Programado</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#finalizado" data-bs-toggle="tab">Finalizado</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#cancelado" data-bs-toggle="tab">Cancelado</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#conferido" data-bs-toggle="tab">Conferido</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#reprogramado" data-bs-toggle="tab">Reprogramado</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#todos" data-bs-toggle="tab">Todos</a>
+                </li>
+            </ul>
+
+            <!-- Executando -->
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="executando">
+                    <div class="d-flex align-items-center mt-3 filtros">
+                        <button class="btn btn-outline-secondary me-3">Filtrar</button>
+                        <button class="btn btn-outline-secondary">
+                            <svg width="29" height="18" viewBox="0 0 39 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30.1364 25.375C31.6077 25.375 32.7955 24.2025 32.7955 22.75C32.7955 21.2975 31.6077 20.125 30.1364 20.125C28.665 20.125 27.4773 21.2975 27.4773 22.75C27.4773 24.2025 28.665 25.375 30.1364 25.375ZM32.7955 9.625H28.3636V14H36.27L32.7955 9.625ZM8.86364 25.375C10.335 25.375 11.5227 24.2025 11.5227 22.75C11.5227 21.2975 10.335 20.125 8.86364 20.125C7.39227 20.125 6.20455 21.2975 6.20455 22.75C6.20455 24.2025 7.39227 25.375 8.86364 25.375ZM33.6818 7L39 14V22.75H35.4545C35.4545 25.655 33.0791 28 30.1364 28C27.1936 28 24.8182 25.655 24.8182 22.75H14.1818C14.1818 25.655 11.8064 28 8.86364 28C5.92091 28 3.54545 25.655 3.54545 22.75H0V3.5C0 1.5575 1.57773 0 3.54545 0H28.3636V7H33.6818ZM3.54545 3.5V19.25H4.89273C5.86773 18.1825 7.28591 17.5 8.86364 17.5C10.4414 17.5 11.8595 18.1825 12.8345 19.25H24.8182V3.5H3.54545Z" fill="#B71D24" />
+                            </svg>
+
+                            Alterar Rota
+                        </button>
+                        <div class="ms-auto">
+                            <button class="btn btn-outline-secondary">
+                                <svg width="21" height="26" viewBox="0 0 36 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 22.55H28V32.8H18V22.55ZM32 4.1H30V0H26V4.1H10V0H6V4.1H4C1.8 4.1 0 5.945 0 8.2V36.9C0 39.155 1.8 41 4 41H32C34.2 41 36 39.155 36 36.9V8.2C36 5.945 34.2 4.1 32 4.1ZM32 8.2V12.3H4V8.2H32ZM4 36.9V16.4H32V36.9H4Z" fill="#B71D24" />
+                                </svg>
+                                DD/MM/AAAA
+                            </button>
+                        </div>
+
+
+                    </div>
+
+                    <div class="d-flex justify-content-start align-items-center">
+                        <div class="filter-container d-flex justify-content-between">
+                            <button class="btn btn-outline-secondary me-3">Cliente</button>
+                            <button class="btn btn-outline-secondary me-3">Cidade</button>
+                            <button class="btn btn-outline-secondary me-3">Bairro</button>
+                            <button class="btn btn-outline-secondary me-3">Resíduo</button>
+                        </div>
+                    </div>
+
+                    <div class="table-container mt-3">
+                        <table class="table table-bordered table-hover table-striped table__custom">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <input type="checkbox">
+                                    </th>
+                                    <th scope="col">RP</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Hora</th>
+                                    <th scope="col">Solicitante</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Resíduo</th>
+                                    <th scope="col">Data Programada</th>
+                                    <th scope="col">Serviço a Executar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+                                </tr>
+                                <!-- Add more rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Programado -->
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="programado">
+                    <div class="d-flex align-items-center mt-3 filtros">
+                        <button class="btn btn-outline-secondary me-3">Filtrar</button>
+                        <button class="btn btn-outline-secondary">
+                            <svg width="29" height="18" viewBox="0 0 39 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30.1364 25.375C31.6077 25.375 32.7955 24.2025 32.7955 22.75C32.7955 21.2975 31.6077 20.125 30.1364 20.125C28.665 20.125 27.4773 21.2975 27.4773 22.75C27.4773 24.2025 28.665 25.375 30.1364 25.375ZM32.7955 9.625H28.3636V14H36.27L32.7955 9.625ZM8.86364 25.375C10.335 25.375 11.5227 24.2025 11.5227 22.75C11.5227 21.2975 10.335 20.125 8.86364 20.125C7.39227 20.125 6.20455 21.2975 6.20455 22.75C6.20455 24.2025 7.39227 25.375 8.86364 25.375ZM33.6818 7L39 14V22.75H35.4545C35.4545 25.655 33.0791 28 30.1364 28C27.1936 28 24.8182 25.655 24.8182 22.75H14.1818C14.1818 25.655 11.8064 28 8.86364 28C5.92091 28 3.54545 25.655 3.54545 22.75H0V3.5C0 1.5575 1.57773 0 3.54545 0H28.3636V7H33.6818ZM3.54545 3.5V19.25H4.89273C5.86773 18.1825 7.28591 17.5 8.86364 17.5C10.4414 17.5 11.8595 18.1825 12.8345 19.25H24.8182V3.5H3.54545Z" fill="#B71D24" />
+                            </svg>
+
+                            Alterar Rota
+                        </button>
+                        <div class="ms-auto">
+                            <button class="btn btn-outline-secondary">
+                                <svg width="21" height="26" viewBox="0 0 36 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 22.55H28V32.8H18V22.55ZM32 4.1H30V0H26V4.1H10V0H6V4.1H4C1.8 4.1 0 5.945 0 8.2V36.9C0 39.155 1.8 41 4 41H32C34.2 41 36 39.155 36 36.9V8.2C36 5.945 34.2 4.1 32 4.1ZM32 8.2V12.3H4V8.2H32ZM4 36.9V16.4H32V36.9H4Z" fill="#B71D24" />
+                                </svg>
+                                DD/MM/AAAA
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container mt-3">
+                        <table class="table table-bordered table-hover table-striped table__custom">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <input type="checkbox">
+                                    </th>
+                                    <th scope="col">RP</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Hora</th>
+                                    <th scope="col">Solicitante</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Resíduo</th>
+                                    <th scope="col">Data Programada</th>
+                                    <th scope="col">Serviço a Executar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Não Programado -->
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="nao-programado">
+                    <div class="d-flex align-items-center mt-3 filtros">
+                        <button class="btn btn-outline-secondary">Filtrar</button>
+                        <button class="btn btn-outline-secondary">
+                            <svg width="29" height="18" viewBox="0 0 39 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30.1364 25.375C31.6077 25.375 32.7955 24.2025 32.7955 22.75C32.7955 21.2975 31.6077 20.125 30.1364 20.125C28.665 20.125 27.4773 21.2975 27.4773 22.75C27.4773 24.2025 28.665 25.375 30.1364 25.375ZM32.7955 9.625H28.3636V14H36.27L32.7955 9.625ZM8.86364 25.375C10.335 25.375 11.5227 24.2025 11.5227 22.75C11.5227 21.2975 10.335 20.125 8.86364 20.125C7.39227 20.125 6.20455 21.2975 6.20455 22.75C6.20455 24.2025 7.39227 25.375 8.86364 25.375ZM33.6818 7L39 14V22.75H35.4545C35.4545 25.655 33.0791 28 30.1364 28C27.1936 28 24.8182 25.655 24.8182 22.75H14.1818C14.1818 25.655 11.8064 28 8.86364 28C5.92091 28 3.54545 25.655 3.54545 22.75H0V3.5C0 1.5575 1.57773 0 3.54545 0H28.3636V7H33.6818ZM3.54545 3.5V19.25H4.89273C5.86773 18.1825 7.28591 17.5 8.86364 17.5C10.4414 17.5 11.8595 18.1825 12.8345 19.25H24.8182V3.5H3.54545Z" fill="#B71D24" />
+                            </svg>
+
+                            Alterar Rota
+                        </button>
+                        <button class="btn btn-outline-secondary">
+                            <svg width="29" height="18" viewBox="0 0 39 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30.1364 25.375C31.6077 25.375 32.7955 24.2025 32.7955 22.75C32.7955 21.2975 31.6077 20.125 30.1364 20.125C28.665 20.125 27.4773 21.2975 27.4773 22.75C27.4773 24.2025 28.665 25.375 30.1364 25.375ZM32.7955 9.625H28.3636V14H36.27L32.7955 9.625ZM8.86364 25.375C10.335 25.375 11.5227 24.2025 11.5227 22.75C11.5227 21.2975 10.335 20.125 8.86364 20.125C7.39227 20.125 6.20455 21.2975 6.20455 22.75C6.20455 24.2025 7.39227 25.375 8.86364 25.375ZM33.6818 7L39 14V22.75H35.4545C35.4545 25.655 33.0791 28 30.1364 28C27.1936 28 24.8182 25.655 24.8182 22.75H14.1818C14.1818 25.655 11.8064 28 8.86364 28C5.92091 28 3.54545 25.655 3.54545 22.75H0V3.5C0 1.5575 1.57773 0 3.54545 0H28.3636V7H33.6818ZM3.54545 3.5V19.25H4.89273C5.86773 18.1825 7.28591 17.5 8.86364 17.5C10.4414 17.5 11.8595 18.1825 12.8345 19.25H24.8182V3.5H3.54545Z" fill="#1DB736" />
+                            </svg>
+
+                            Criar Rota
+                        </button>
+                        <div class="ms-auto ml-3">
+                            <button class="btn btn-outline-secondary">
+                                <svg width="21" height="26" viewBox="0 0 36 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 22.55H28V32.8H18V22.55ZM32 4.1H30V0H26V4.1H10V0H6V4.1H4C1.8 4.1 0 5.945 0 8.2V36.9C0 39.155 1.8 41 4 41H32C34.2 41 36 39.155 36 36.9V8.2C36 5.945 34.2 4.1 32 4.1ZM32 8.2V12.3H4V8.2H32ZM4 36.9V16.4H32V36.9H4Z" fill="#B71D24" />
+                                </svg>
+                                DD/MM/AAAA
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container mt-3">
+                        <table class="table table-bordered table-hover table-striped table__custom">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <input type="checkbox">
+                                    </th>
+                                    <th scope="col">RP</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Hora</th>
+                                    <th scope="col">Solicitante</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Resíduo</th>
+                                    <th scope="col">Data Programada</th>
+                                    <th scope="col">Serviço a Executar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Finalizado -->
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="finalizado">
+                    <div class="d-flex align-items-center mt-3 filtros">
+                        <button class="btn btn-outline-secondary">Filtrar</button>
+                        <button class="btn btn-outline-secondary">
+                            <svg width="29" height="18" viewBox="0 0 39 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30.1364 25.375C31.6077 25.375 32.7955 24.2025 32.7955 22.75C32.7955 21.2975 31.6077 20.125 30.1364 20.125C28.665 20.125 27.4773 21.2975 27.4773 22.75C27.4773 24.2025 28.665 25.375 30.1364 25.375ZM32.7955 9.625H28.3636V14H36.27L32.7955 9.625ZM8.86364 25.375C10.335 25.375 11.5227 24.2025 11.5227 22.75C11.5227 21.2975 10.335 20.125 8.86364 20.125C7.39227 20.125 6.20455 21.2975 6.20455 22.75C6.20455 24.2025 7.39227 25.375 8.86364 25.375ZM33.6818 7L39 14V22.75H35.4545C35.4545 25.655 33.0791 28 30.1364 28C27.1936 28 24.8182 25.655 24.8182 22.75H14.1818C14.1818 25.655 11.8064 28 8.86364 28C5.92091 28 3.54545 25.655 3.54545 22.75H0V3.5C0 1.5575 1.57773 0 3.54545 0H28.3636V7H33.6818ZM3.54545 3.5V19.25H4.89273C5.86773 18.1825 7.28591 17.5 8.86364 17.5C10.4414 17.5 11.8595 18.1825 12.8345 19.25H24.8182V3.5H3.54545Z" fill="#B71D24" />
+                            </svg>
+
+                            Alterar Rota
+                        </button>
+
+                        <div class="ms-auto ml-3">
+                            <button class="btn btn-outline-secondary">
+                                <svg width="21" height="26" viewBox="0 0 36 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 22.55H28V32.8H18V22.55ZM32 4.1H30V0H26V4.1H10V0H6V4.1H4C1.8 4.1 0 5.945 0 8.2V36.9C0 39.155 1.8 41 4 41H32C34.2 41 36 39.155 36 36.9V8.2C36 5.945 34.2 4.1 32 4.1ZM32 8.2V12.3H4V8.2H32ZM4 36.9V16.4H32V36.9H4Z" fill="#B71D24" />
+                                </svg>
+                                DD/MM/AAAA
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container mt-3">
+                        <table class="table table-bordered table-hover table-striped table__custom">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <input type="checkbox">
+                                    </th>
+                                    <th scope="col">RP</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Hora</th>
+                                    <th scope="col">Solicitante</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Resíduo</th>
+                                    <th scope="col">Data Programada</th>
+                                    <th scope="col">Serviço a Executar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cancelado -->
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="cancelado">
+                    <div class="d-flex align-items-center mt-3 filtros">
+                        <button class="btn btn-outline-secondary">Filtrar</button>
+                        <button class="btn btn-outline-secondary">
+                            <svg width="29" height="18" viewBox="0 0 39 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30.1364 25.375C31.6077 25.375 32.7955 24.2025 32.7955 22.75C32.7955 21.2975 31.6077 20.125 30.1364 20.125C28.665 20.125 27.4773 21.2975 27.4773 22.75C27.4773 24.2025 28.665 25.375 30.1364 25.375ZM32.7955 9.625H28.3636V14H36.27L32.7955 9.625ZM8.86364 25.375C10.335 25.375 11.5227 24.2025 11.5227 22.75C11.5227 21.2975 10.335 20.125 8.86364 20.125C7.39227 20.125 6.20455 21.2975 6.20455 22.75C6.20455 24.2025 7.39227 25.375 8.86364 25.375ZM33.6818 7L39 14V22.75H35.4545C35.4545 25.655 33.0791 28 30.1364 28C27.1936 28 24.8182 25.655 24.8182 22.75H14.1818C14.1818 25.655 11.8064 28 8.86364 28C5.92091 28 3.54545 25.655 3.54545 22.75H0V3.5C0 1.5575 1.57773 0 3.54545 0H28.3636V7H33.6818ZM3.54545 3.5V19.25H4.89273C5.86773 18.1825 7.28591 17.5 8.86364 17.5C10.4414 17.5 11.8595 18.1825 12.8345 19.25H24.8182V3.5H3.54545Z" fill="#B71D24" />
+                            </svg>
+
+                            Alterar Rota
+                        </button>
+
+                        <div class="ms-auto ml-3">
+                            <button class="btn btn-outline-secondary">
+                                <svg width="21" height="26" viewBox="0 0 36 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 22.55H28V32.8H18V22.55ZM32 4.1H30V0H26V4.1H10V0H6V4.1H4C1.8 4.1 0 5.945 0 8.2V36.9C0 39.155 1.8 41 4 41H32C34.2 41 36 39.155 36 36.9V8.2C36 5.945 34.2 4.1 32 4.1ZM32 8.2V12.3H4V8.2H32ZM4 36.9V16.4H32V36.9H4Z" fill="#B71D24" />
+                                </svg>
+                                DD/MM/AAAA
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container mt-3">
+                        <table class="table table-bordered table-hover table-striped table__custom">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <input type="checkbox">
+                                    </th>
+                                    <th scope="col">RP</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Hora</th>
+                                    <th scope="col">Solicitante</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Resíduo</th>
+                                    <th scope="col">Data Programada</th>
+                                    <th scope="col">Serviço a Executar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!--Conferido -->
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="conferido">
+                    <div class="d-flex align-items-center mt-3 filtros">
+                        <button class="btn btn-outline-secondary">Filtrar</button>
+                        <button class="btn btn-outline-secondary">
+                            <svg width="29" height="18" viewBox="0 0 39 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30.1364 25.375C31.6077 25.375 32.7955 24.2025 32.7955 22.75C32.7955 21.2975 31.6077 20.125 30.1364 20.125C28.665 20.125 27.4773 21.2975 27.4773 22.75C27.4773 24.2025 28.665 25.375 30.1364 25.375ZM32.7955 9.625H28.3636V14H36.27L32.7955 9.625ZM8.86364 25.375C10.335 25.375 11.5227 24.2025 11.5227 22.75C11.5227 21.2975 10.335 20.125 8.86364 20.125C7.39227 20.125 6.20455 21.2975 6.20455 22.75C6.20455 24.2025 7.39227 25.375 8.86364 25.375ZM33.6818 7L39 14V22.75H35.4545C35.4545 25.655 33.0791 28 30.1364 28C27.1936 28 24.8182 25.655 24.8182 22.75H14.1818C14.1818 25.655 11.8064 28 8.86364 28C5.92091 28 3.54545 25.655 3.54545 22.75H0V3.5C0 1.5575 1.57773 0 3.54545 0H28.3636V7H33.6818ZM3.54545 3.5V19.25H4.89273C5.86773 18.1825 7.28591 17.5 8.86364 17.5C10.4414 17.5 11.8595 18.1825 12.8345 19.25H24.8182V3.5H3.54545Z" fill="#B71D24" />
+                            </svg>
+
+                            Alterar Rota
+                        </button>
+                        <button class="btn btn-outline-secondary">
+                            Editar Conferência
+                        </button>
+                        <div class="ms-auto ml-3">
+                            <button class="btn btn-outline-secondary">
+                                <svg width="21" height="26" viewBox="0 0 36 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 22.55H28V32.8H18V22.55ZM32 4.1H30V0H26V4.1H10V0H6V4.1H4C1.8 4.1 0 5.945 0 8.2V36.9C0 39.155 1.8 41 4 41H32C34.2 41 36 39.155 36 36.9V8.2C36 5.945 34.2 4.1 32 4.1ZM32 8.2V12.3H4V8.2H32ZM4 36.9V16.4H32V36.9H4Z" fill="#B71D24" />
+                                </svg>
+                                DD/MM/AAAA
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container mt-3">
+                        <table class="table table-bordered table-hover table-striped table__custom">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <input type="checkbox">
+                                    </th>
+                                    <th scope="col">RP</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Hora</th>
+                                    <th scope="col">Solicitante</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Resíduo</th>
+                                    <th scope="col">Data Programada</th>
+                                    <th scope="col">Serviço a Executar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reprogramado -->
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="#reprogramado">
+                    <div class="d-flex align-items-center mt-3 filtros">
+                        <button class="btn btn-outline-secondary">Filtrar</button>
+                        <button class="btn btn-outline-secondary">
+                            <svg width="29" height="18" viewBox="0 0 39 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30.1364 25.375C31.6077 25.375 32.7955 24.2025 32.7955 22.75C32.7955 21.2975 31.6077 20.125 30.1364 20.125C28.665 20.125 27.4773 21.2975 27.4773 22.75C27.4773 24.2025 28.665 25.375 30.1364 25.375ZM32.7955 9.625H28.3636V14H36.27L32.7955 9.625ZM8.86364 25.375C10.335 25.375 11.5227 24.2025 11.5227 22.75C11.5227 21.2975 10.335 20.125 8.86364 20.125C7.39227 20.125 6.20455 21.2975 6.20455 22.75C6.20455 24.2025 7.39227 25.375 8.86364 25.375ZM33.6818 7L39 14V22.75H35.4545C35.4545 25.655 33.0791 28 30.1364 28C27.1936 28 24.8182 25.655 24.8182 22.75H14.1818C14.1818 25.655 11.8064 28 8.86364 28C5.92091 28 3.54545 25.655 3.54545 22.75H0V3.5C0 1.5575 1.57773 0 3.54545 0H28.3636V7H33.6818ZM3.54545 3.5V19.25H4.89273C5.86773 18.1825 7.28591 17.5 8.86364 17.5C10.4414 17.5 11.8595 18.1825 12.8345 19.25H24.8182V3.5H3.54545Z" fill="#B71D24" />
+                            </svg>
+
+                            Alterar Rota
+                        </button>
+
+                        <div class="ms-auto ml-3">
+                            <button class="btn btn-outline-secondary">
+                                <svg width="21" height="26" viewBox="0 0 36 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 22.55H28V32.8H18V22.55ZM32 4.1H30V0H26V4.1H10V0H6V4.1H4C1.8 4.1 0 5.945 0 8.2V36.9C0 39.155 1.8 41 4 41H32C34.2 41 36 39.155 36 36.9V8.2C36 5.945 34.2 4.1 32 4.1ZM32 8.2V12.3H4V8.2H32ZM4 36.9V16.4H32V36.9H4Z" fill="#B71D24" />
+                                </svg>
+                                DD/MM/AAAA
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container mt-3">
+                        <table class="table table-bordered table-hover table-striped table__custom">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <input type="checkbox">
+                                    </th>
+                                    <th scope="col">RP</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Hora</th>
+                                    <th scope="col">Solicitante</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Resíduo</th>
+                                    <th scope="col">Data Programada</th>
+                                    <th scope="col">Serviço a Executar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Todos -->
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="#todos">
+                    <div class="d-flex align-items-center mt-3 filtros">
+                        <button class="btn btn-outline-secondary">Filtrar</button>
+                        <button class="btn btn-outline-secondary">
+                            <svg width="29" height="18" viewBox="0 0 39 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M30.1364 25.375C31.6077 25.375 32.7955 24.2025 32.7955 22.75C32.7955 21.2975 31.6077 20.125 30.1364 20.125C28.665 20.125 27.4773 21.2975 27.4773 22.75C27.4773 24.2025 28.665 25.375 30.1364 25.375ZM32.7955 9.625H28.3636V14H36.27L32.7955 9.625ZM8.86364 25.375C10.335 25.375 11.5227 24.2025 11.5227 22.75C11.5227 21.2975 10.335 20.125 8.86364 20.125C7.39227 20.125 6.20455 21.2975 6.20455 22.75C6.20455 24.2025 7.39227 25.375 8.86364 25.375ZM33.6818 7L39 14V22.75H35.4545C35.4545 25.655 33.0791 28 30.1364 28C27.1936 28 24.8182 25.655 24.8182 22.75H14.1818C14.1818 25.655 11.8064 28 8.86364 28C5.92091 28 3.54545 25.655 3.54545 22.75H0V3.5C0 1.5575 1.57773 0 3.54545 0H28.3636V7H33.6818ZM3.54545 3.5V19.25H4.89273C5.86773 18.1825 7.28591 17.5 8.86364 17.5C10.4414 17.5 11.8595 18.1825 12.8345 19.25H24.8182V3.5H3.54545Z" fill="#B71D24" />
+                            </svg>
+
+                            Alterar Rota
+                        </button>
+
+                        <div class="ms-auto ml-3">
+                            <button class="btn btn-outline-secondary">
+                                <svg width="21" height="26" viewBox="0 0 36 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 22.55H28V32.8H18V22.55ZM32 4.1H30V0H26V4.1H10V0H6V4.1H4C1.8 4.1 0 5.945 0 8.2V36.9C0 39.155 1.8 41 4 41H32C34.2 41 36 39.155 36 36.9V8.2C36 5.945 34.2 4.1 32 4.1ZM32 8.2V12.3H4V8.2H32ZM4 36.9V16.4H32V36.9H4Z" fill="#B71D24" />
+                                </svg>
+                                DD/MM/AAAA
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-container mt-3">
+                        <table class="table table-bordered table-hover table-striped table__custom">
+                            <thead>
+                                <tr>
+                                    <th scope="col">
+                                        <input type="checkbox">
+                                    </th>
+                                    <th scope="col">RP</th>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Hora</th>
+                                    <th scope="col">Solicitante</th>
+                                    <th scope="col">Cliente</th>
+                                    <th scope="col">Resíduo</th>
+                                    <th scope="col">Data Programada</th>
+                                    <th scope="col">Serviço a Executar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td scope="col">RP</td>
+                                    <td scope="col">Data</td>
+                                    <td scope="col">Hora</td>
+                                    <td scope="col">Solicitante</td>
+                                    <td scope="col">Cliente</td>
+                                    <td scope="col">Resíduo</td>
+                                    <td scope="col">Data Programada</td>
+                                    <td scope="col">Serviço a Executar</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
